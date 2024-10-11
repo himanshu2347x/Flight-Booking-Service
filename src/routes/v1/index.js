@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const BookingController = require("../../controllers/booking-controller");
 
+const bookingController = new BookingController();
+router.post("/bookFlight", bookingController.createBooking);
 
-router.post("/bookFlight", BookingController.createBooking);
+router.post('/publish', bookingController.sendMessageToQueue);
+router.patch("/bookings/:id", bookingController.updateBooking);
 
-
-router.patch("/bookings/:id", BookingController.updateBooking);
-
-router.get("/bookings/:id", BookingController.getBooking);
+router.get("/bookings/:id", bookingController.getBooking);
 
 module.exports = router;
