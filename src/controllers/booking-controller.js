@@ -56,8 +56,6 @@ class BookingController {
       error: {},
     });
   } catch (error) {
-    console.error("Error updating booking:", error); // Log the error for debugging
-
     return res.status(500).json({
       success: false,
       message: "Unable to update booking.",
@@ -78,8 +76,6 @@ async getBooking (req, res) {
       error: {},
     });
   } catch (error) {
-    console.error("Error fetching booking:", error); // Log the error for debugging
-
     return res.status(500).json({
       success: false,
       message: "Unable to fetch booking.",
